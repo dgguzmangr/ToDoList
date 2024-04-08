@@ -109,7 +109,12 @@ WSGI_APPLICATION = 'app_to_do_list.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-mongoengine.connect(db=config('db_name'), host=config('hostname'), username=config('username'), password=config('pwd'))
+mongoengine.connect(
+    db=config('db_name'), 
+    host=config('hostname'), 
+    username=config('username'), 
+    password=config('pwd')
+    )
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
