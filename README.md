@@ -1,4 +1,4 @@
-### Aplicación de Gestión de Tareas
+# Aplicación de Gestión de Tareas
 
 La aplicación de Gestión de Tareas es una herramienta diseñada para ayudar a los usuarios a organizar y realizar un seguimiento de sus tareas diarias, asignándoles proyectos, tareas y subtareas.
 
@@ -22,21 +22,21 @@ PostgreSQL: Sistema de gestión de bases de datos relacional.
 
 ## Configuración del Entorno
 
-#  Clona el repositorio desde GitHub:
+###  Clona el repositorio desde GitHub:
 
 git clone https://github.com/dgguzmangr/ToDoList.git
 
-# Crea y activa un entorno virtual:
+### Crea y activa un entorno virtual:
 
 python -m venv venv
 source venv/bin/activate  # En Linux/Mac
 source\venv\Scripts\activate   # En Windows
 
-# Instala las dependencias del proyecto:
+### Instala las dependencias del proyecto:
 
 pip install -r requirements.txt
 
-# Configura la base de datos PostgreSQL en settings.py:
+### Configura la base de datos PostgreSQL en settings.py:
 
 DATABASES = {
     'default': {
@@ -49,7 +49,7 @@ DATABASES = {
     }
 }
 
-# Realiza las migraciones:
+### Realiza las migraciones:
 
 python manage.py makemigrations
 python manage.py migrate
@@ -57,7 +57,7 @@ Ejecuta el servidor de desarrollo:
 
 python manage.py runserver
 
-# Uso
+## Uso
 
 Abre tu navegador web y accede a    http://localhost:8000/swagger/
                                     http://127.0.0.1:8000/admin/
@@ -66,7 +66,7 @@ Abre tu navegador web y accede a    http://localhost:8000/swagger/
 Podrás ver todas tus tareas y realizar las acciones necesarias (crear, editar, eliminar, marcar como completada).
 Utiliza los filtros y la búsqueda para encontrar tareas específicas según tus necesidades.
 
-# Contribución
+## Contribución
 Si deseas contribuir a este proyecto, ¡te damos la bienvenida! Siempre estamos abiertos a nuevas ideas y mejoras. Siéntete libre de enviar pull requests.
 
 # Licencia

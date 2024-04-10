@@ -9,6 +9,12 @@ class SubTasks(models.Model):
     description = models.CharField('Description', max_length=400)
     creation_date = models.DateField('Date', default=timezone.now)
     expiration_date = models.DateTimeField('ExpirationDate', null=True, blank=True)
+    STATUS_CHOICES = [
+        ('En espera', 'En espera'),
+        ('En progreso', 'En progreso'),
+        ('Finalizada', 'Finalizada'),
+    ]
+    status = models.CharField('Status', max_length=20, choices=STATUS_CHOICES)
     task_id = models.ForeignKey(Tasks, on_delete=models.CASCADE, related_name='subTasks')
     project_id = models.ForeignKey(Projects, on_delete=models.CASCADE, related_name='subTasks')
 
