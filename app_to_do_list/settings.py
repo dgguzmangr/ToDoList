@@ -14,7 +14,9 @@ import os
 from datetime import timedelta
 from pathlib import Path
 from decouple import config
+from dotenv import load_dotenv
 
+load_dotenv('.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
