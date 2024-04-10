@@ -16,6 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
+from authApp.views import appView
+
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -24,9 +29,9 @@ schema_view = get_schema_view(
     openapi.Info(
         title="API Documentation",
         default_version='v1',
-        description="API for Todo List",
-        terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="contact@example.com"),
+        description="API for To do List",
+        # terms_of_service="https://www.google.com/policies/terms/",
+        contact=openapi.Contact(email="dgguzmangr@gmail.com"),
         license=openapi.License(name="BSD License"),
     ),
     public=True,
@@ -37,6 +42,24 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+
+    # project urls
+    path('show_projects/', appView.show_projects),
+    path('create_project/', appView.create_project),
+    path('update_project/<int:pk>/', appView.update_project),
+    path('delete_project/<int:pk>/', appView.delete_project),
+
+    # task urls
+    path('show_tasks/', appView.show_tasks),
+    path('create_task/', appView.create_task),
+    path('update_task/<int:pk>/', appView.update_task),
+    path('delete_task/<int:pk>/', appView.delete_task),
+
+    # subtask urls
+    path('show_subtasks/', appView.show_subtasks),
+    path('create_subtask/', appView.create_subtask),
+    path('update_subtask/<int:pk>/', appView.update_subtask),
+    path('delete_subtask/<int:pk>/', appView.delete_subtask),
 ]
 
 # http://localhost:8000/swagger/

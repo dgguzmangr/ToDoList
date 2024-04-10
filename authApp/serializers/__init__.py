@@ -1,0 +1,3 @@
+from authApp.serializers.projectsSerializer import ProjectsSerializer
+from authApp.serializers.tasksSerializer import  TasksSerializer
+from authApp.serializers.subTasksSerializer import SubTasksSerializer

@@ -14,7 +14,6 @@ import os
 from datetime import timedelta
 from pathlib import Path
 from decouple import config
-import mongoengine
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -50,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'authApp',
     'app_to_do_list',
     'drf_yasg',
 ]
@@ -109,12 +109,16 @@ WSGI_APPLICATION = 'app_to_do_list.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-mongoengine.connect(
-    db=config('db_name'), 
-    host=config('hostname'), 
-    username=config('username'), 
-    password=config('pwd')
-    )
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('db_name'),
+        'USER': config('user_db'),
+        'PASSWORD': config('password'),
+        'HOST': config('db_host'),
+        'PORT': config('db_port'),
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

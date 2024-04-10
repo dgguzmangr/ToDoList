@@ -1,1 +1,0 @@
-from projectsSerializer import ProjectsSerializer
