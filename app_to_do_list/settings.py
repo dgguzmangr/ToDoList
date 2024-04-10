@@ -15,6 +15,7 @@ from datetime import timedelta
 from pathlib import Path
 from decouple import config
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,8 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-wk%h)epf$ck8kl4i*oi_pu9)i@udbplmv)y$49*=trlrs*w00t'
-# SECRET_KEY = config('secret_key')
+SECRET_KEY = config('secret_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG')
@@ -35,6 +35,10 @@ ALLOWED_HOSTS = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080"
+]
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"http://localhost:8080",
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
