@@ -19,7 +19,10 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
+
+from rest_framework.authtoken import views
 from authApp.views import appView
+
 
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
@@ -60,6 +63,18 @@ urlpatterns = [
     path('create_subtask/', appView.create_subtask),
     path('update_subtask/<int:pk>/', appView.update_subtask),
     path('delete_subtask/<int:pk>/', appView.delete_subtask),
+
+    # person urls
+    path('show_persons/', appView.show_persons),
+    path('create_person/', appView.create_person),
+    path('update_person/<int:pk>/', appView.update_person),
+    path('delete_person/<int:pk>/', appView.delete_person),
+
+    # token
+    path('generate_token/', views.obtain_auth_token),
+
+    #login
+    path('login/', appView.login),
 ]
 
 # http://localhost:8000/swagger/
