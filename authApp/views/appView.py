@@ -196,29 +196,3 @@ def login(request):
             token, _ = Token.objects.get_or_create(user=user)
             return Response({"token": token.key}, status=status.HTTP_200_OK)
         return Response({"error": "Invalid username or password"}, status=status.HTTP_400_BAD_REQUEST)
-
-
-
-
-
-"""
-class Login(FormView):
-    template_name = "login.html"
-    form_class = AuthenticationForm
-    success_url =reverse_lazy('show_persons')
-
-    @method_decorator(csrf_protect)
-    @method_decorator(never_cache)
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return HttpResponseRedirect(self.get_success_url())
-        else:
-            return super(Login,self).dispatch(request, *args, **kwargs)
-        
-    def form_valid(self, form):
-        user = authenticate(username = form.cleaned_data['username'], password = form.cleaned_data['password'])
-        token,_ = Token.objects.get_or_create(user = user)
-        if token:
-            login(self.request, form.get_user())
-            return super(Login, self).form_valid(form)
-"""
